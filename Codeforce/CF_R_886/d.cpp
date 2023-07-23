@@ -29,24 +29,19 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
 
 
 void solve() {
-    ll i,n,k;
-    cin >> n >> k;
-    vector<ll> a(n);
-    for(auto &x: a) cin >> x;
-    sort(all(a));
-    vector<ll> diff;
-    rep(i,1,n) diff.pb(a[i]-a[i-1]);
-    
-    ll mx = 0;
-    ll cnt = 0;
-    rep(i,0,n-1) {
-        if(diff[i] <= k) cnt++;
-        else {
-            cnt = 0;
-        }
-        mx = max(cnt,mx);
-    }
-    cout << n-(mx+1);
+   // read the input
+   ll n,i,k;
+   cin >> n >> k;
+   vector<ll> a(n);
+   for(auto &x : a) cin >> x;
+   sort(all(a));
+   ll mx_len = 0, len = 0;
+   for(int i = 1; i < n; i++) {
+        if(a[i]-a[i-1] <= k) len++;
+        else len = 0;
+        mx_len = max(mx_len, len);
+   } 
+   cout << n-(mx_len+1);
 }
 int main() {
 	// your code goes here
