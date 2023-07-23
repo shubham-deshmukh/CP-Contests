@@ -27,29 +27,34 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
     else return (x.ff < y.ff); // incresing order of 1st elt
 }
 
-
 void solve() {
-    ll i,n, t;
-    cin >> n >> t;
-    ll s = 0, ss = 0;
-    rep(i,0,n) {
-        ll x;
-        cin >> x;
-        s += x;
-        ss += x*x;
+    // Approach 1: Using binary Search
+    // Taking minimum possible upper limit
+    int n,i;
+    int64_t c;
+    cin >> n >> c;
+    int64_t sum_s = 0, sum_s2 = 0;
+    for(int i = 0 ; i < n; i++) {
+        int64_t s;
+        cin >> s;
+        sum_s += s;
+        sum_s2 += s * s;
     }
-    ll A = n*4;
-    ll B = 4*s;
-    ll C = ss - t;
-    ll D1 = B*B-4*A*C;
-    ll D = s*s-n*C;
-    // cout << "D: " << D << endl;
-    ll ans = (-B + 4*sqrt(D)) / (2*A);
-    D = s*s+n*t-n*ss;
-    cout << "D: " << D << endl;
-    ans =  (-s+sqrt(D)) / (2*n);
-    cout << ans;
-
+    int64_t low = 0;
+    int64_t constant = (c-sum_s2) / 4;
+    int64_t high = int64_t(sqrt(constant / n)) + 1;
+    while(low <= high) {
+        int64_t mid = low + (high - low) / 2;
+        int64_t t = n * mid * mid + mid * sum_s;
+        if(t < constant)
+            low = mid + 1;
+        else if(t > constant)
+            high = mid - 1;
+        else {
+            cout << mid;
+            break;
+        }
+    }
 }
 int main() {
 	// your code goes here
