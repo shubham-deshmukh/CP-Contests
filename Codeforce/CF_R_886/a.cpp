@@ -29,9 +29,21 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
 
 
 void solve() {
+    // Approach 1: Used in actual contest
+    /*
     ll x,y,z;
     cin >> x >> y >> z;
     if((x+y+z)-min({x,y,z}) >=10) cout << "YES";
+    else cout << "NO";
+    */
+
+   // Approach 2: Using sorting
+    ll i,n=3;
+    vector<ll> a(n);
+    for(auto &e: a) cin >> e;
+    sort(all(a));
+    reverse(all(a));
+    if(a[0]+a[1] >= 10) cout << "YES";
     else cout << "NO";
 }
 int main() {
