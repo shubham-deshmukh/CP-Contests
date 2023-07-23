@@ -28,7 +28,15 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
 }
 
 void solve() {
+    // Approach 0: Using Quadratic formula 
+    /*
+    Calculationg value of w using formula causes following issues
+    1. Precision
+    2. Overflow
+    */
+
     // Approach 1: Using binary Search
+    // Why to use BS: Quadratic Equation is monotonously increasing
     // Taking minimum possible upper limit
     /*
     Login behind considering minimum possible upper limit
