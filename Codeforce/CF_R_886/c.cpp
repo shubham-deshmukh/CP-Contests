@@ -27,22 +27,23 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
     else return (x.ff < y.ff); // incresing order of 1st elt
 }
 
+const ll N = 8;
 
 void solve() {
-    char g[8][8];
-    int i,j;
-    rep(i,0,8) rep(j,0,8) cin >> g[i][j];
-    rep(j,0,8) {
-        string ans = "";
-        bool found = false;
-        rep(i,0,8) {
-            if(g[i][j] != '.') {
-                cout << g[i][j];
-                found = true;
-            } 
-        }
-        // if(found) cout << endl;
-    }
+    vector<string> grid(N);
+
+    for(auto &row : grid) 
+        cin >> row;
+
+    string word;
+
+    for(int j = 0; j < N; j++) 
+        for(int i = 0; i < N; i++)
+            if(grid[i][j] != '.') 
+                word += grid[i][j];
+            
+    cout << word;
+
 }
 int main() {
 	// your code goes here
