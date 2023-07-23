@@ -26,21 +26,28 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
     if(x.ss != y.ss) return (x.ss > y.ss); // descresing order of 2nd elt
     else return (x.ff < y.ff); // incresing order of 1st elt
 }
-/*
-6
-3 1 3 4 9 10
-
-1 : 0 -> 3 -> 6 
-2 : 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
-3 : 0 -> 3 -> 6
-4 : 0 -> 4 -> 8
-
-Let's say trap at pt x 
-
-*/
 
 void solve() {
-    
+    ll n,i;
+    cin >> n;
+    vector<ll> a(n);
+
+    for(auto &x: a) cin >> x;
+
+    // a + x > b - x
+    // 2x > b-a
+    // x > (b-a) / 2
+    // x = (b-a) / 2 + 1
+
+    ll mn = LLONG_MAX;
+    for(int i = 1; i < n; i++) {
+        if(a[i] < a[i-1]) {
+            mn = 0; break;
+        }
+        mn = min(mn, abs(a[i]-a[i-1]) / 2 + 1);
+    }
+    cout << mn;
+
 }
 int main() {
 	// your code goes here
