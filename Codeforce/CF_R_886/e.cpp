@@ -30,6 +30,19 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
 void solve() {
     // Approach 1: Using binary Search
     // Taking minimum possible upper limit
+    /*
+    Login behind considering minimum possible upper limit
+    SUMMATION (2w + x)^2 = c
+    SUMMATION (4w^2 + 4w * x + x^2) = c
+    4n * w^2 + 4w * sum(x) + sum(x^2) = c
+    4n * w^2 + 4w * sum(x) = c - sum(x^2)
+    Let's say A + B = C
+    Then we can say that A < C 
+    Therefore,
+    4n * w^2  < c - sum(x^2)
+    w^2 < (s - sum(x^2)) / 4n = constant
+    w < sqrt(constant)
+    */
     int n,i;
     int64_t c;
     cin >> n >> c;
