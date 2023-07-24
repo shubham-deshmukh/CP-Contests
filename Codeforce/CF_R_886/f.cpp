@@ -40,7 +40,25 @@ Let's say trap at pt x
 */
 
 void solve() {
-    
+    // Approach : Make a jump for each i hops
+    // Based on crossing the element, similar to seive 
+    int i,n;
+    cin >> n;
+    vector<ll> a(n);
+    vector<ll> freq(n + 1, 0);
+    vector<ll> hops(n + 1, 0);
+    for(auto &x: a) {
+        cin >> x;
+        if(x <=  n)
+            freq[x]++;
+    }
+    for(int i = 1; i <= n; i++) {
+        for(int x = i; x <= n; x += i) {
+            hops[x] += freq[i];
+        }
+    }
+    cout << *max_element(all(hops));
+    // for(auto &x: hops) cout << x << " ";
 }
 int main() {
 	// your code goes here
