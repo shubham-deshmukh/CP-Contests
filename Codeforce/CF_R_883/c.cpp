@@ -27,16 +27,52 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
     else return (x.ff < y.ff); // incresing order of 1st elt
 }
 
-void solve() {
-    int n;
-    cin >> n;
-    int cnt = 0;
-    for(int i = 0; i < n; i++) {
-        int a,b;
-        cin >> a >> b;
-        if(a > b) cnt++;
+bool cmp1(vector<ll> x, vector<ll> y) {
+    if(x[0] != y[0]) return x[0] > y[0]; // decreasing order of score
+    else {
+        if(x[1] != y[1]) return x[1] < y[1] ; // increasing order of penalty
+        else return x[2] < y[2]; // increasing order of person id
     }
-    cout << cnt;
+}
+
+void solve() {
+    ll n,m,h;
+    cin >> n >> m >> h;
+    vector<vector<ll>> a(n,vector<ll>(m));
+
+    for(int i = 0; i < n; i++) 
+        for(int j = 0; j < m; j++) 
+            cin >> a[i][j];
+    
+    vector<vector<ll>> rank;
+    for(int i = 0; i < n; i++) {
+        sort(all(a[i]));
+        ll t = 0;
+        ll score = 0;
+        ll penalty = 0;
+        for(auto s: a[i]) {
+            t += s;
+            if(t <= h) {
+                score++;
+                penalty += t;
+            }
+            else {
+                break;
+            }
+        }
+        vector<ll> rst;
+        rst.push_back(score);
+        rst.push_back(penalty);
+        rst.push_back(i);
+        rank.push_back(rst);
+    }
+    sort(all(rank),cmp1);
+    for(int i = 0; i < n; i++) 
+        if(rank[i][2]==0) {
+            cout << i+1;
+            break;
+        }
+    
 }
 int main() {
 	// your code goes here

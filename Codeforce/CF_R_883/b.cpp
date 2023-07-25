@@ -26,17 +26,47 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
     if(x.ss != y.ss) return (x.ss > y.ss); // descresing order of 2nd elt
     else return (x.ff < y.ff); // incresing order of 1st elt
 }
+string get_winner(char ch) {
+    string winner;
+    
+    if(ch == 'X') winner = "X";
+    else if(ch == 'O') winner = "O";
+    else if (ch == '+') winner = "+";
+    else winner = '.';
 
+    return winner;
+}
 void solve() {
-    int n;
-    cin >> n;
-    int cnt = 0;
-    for(int i = 0; i < n; i++) {
-        int a,b;
-        cin >> a >> b;
-        if(a > b) cnt++;
+    int n = 3;
+    vector<string> a(n);
+    for(int i = 0; i < n; i++) 
+        cin >> a[i];
+    
+    for(int row = 0; row < n; row++) {
+        if(a[row][0] != '.' && a[row][0] == a[row][1] && a[row][1] == a[row][2]) {
+            cout << get_winner(a[row][0]);
+            return;
+        }
     }
-    cout << cnt;
+
+    for(int col = 0; col < n; col++) {
+        if(a[0][col] != '.' && a[0][col] == a[1][col] && a[1][col] == a[2][col]) {
+            cout << get_winner(a[0][col]);
+            return;
+        }
+    }
+
+    if(a[0][0] != '.' && a[0][0] == a[1][1] && a[1][1] == a[2][2]) {
+        cout << get_winner(a[0][0]);
+        return;
+    }
+
+    if(a[2][0] != '.' && a[2][0] == a[1][1] && a[1][1] == a[0][2]) {
+        cout << get_winner(a[2][0]);
+        return;
+    }
+
+    cout << "DRAW";
 }
 int main() {
 	// your code goes here
