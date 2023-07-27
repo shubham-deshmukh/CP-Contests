@@ -43,7 +43,7 @@ int main() {
 	cin >> t;
 	
 	while(t--) {
-         solve();
+        solve();
 	    
 	    if(t > 0) cout << endl;
 	}
