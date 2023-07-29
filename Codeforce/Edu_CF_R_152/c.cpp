@@ -26,50 +26,61 @@ bool cmp(pair<ull,ull> x, pair<ull,ull> y) {
     if(x.ss != y.ss) return (x.ss > y.ss); // descresing order of 2nd elt
     else return (x.ff < y.ff); // incresing order of 1st elt
 }
+/*
+1 0 0 1 1 1
 
+0 0 0 1 
+*/
 void solve() {
     ll n,m;
     cin >> n >> m;
     string s;
     cin >> s;
-    vector<ll> pre(n+1,0);
-    set<string> rst;
-    for(int i = 1; i <= n; i++) {
-        if(s[i-1] == '1') pre[i] = 1 + pre[i-1];
-        else pre[i] = pre[i-1];
-    }
-    vector<string> pre_str(n), suff_str(n);
-    pre_str[0] = s[0];
-    for(int i = 1; i < n; i++) {
-        pre_str[i] = pre_str[i-1] + s[i];
-    }
-    suff_str[n-1] = s[n-1];
-    for(int i=n-2; i >=0; i--) {
-        suff_str[i] = s[i+1] + suff_str[i+1];
+    // left boundry and right boundry
+    
+    // vector<ll> left(n),right(n);
+    // s[n-1] = n-1;
+    // if(s[n-1] == '0') left[n-1] = n;
+    
+    // for(int i = n-2; i >= 0; i--) {
+    //     left[i] = ((s[i] == '1') ? i : left[i+1]);
+    // }
+
+    // right[0] = 0;
+    // if(s[0] == '1') right[0] = -1;
+
+    // for(int i= 1; i < n; i++) {
+    //     right[i] = ((s[i] == '0') ? i : right[i-1]);
+    // }
+
+    // Issue : Use the correct indices for 
+    // calculationg left and right 
+
+    vector<ll> start(n+1,n), end(n+1,-1);
+    for(int i = n-1; i >=0; i--) {
+        if(s[i] == '1') start[i] = i;
+        else start[i] = start[i+1];
     }
 
+    for(int i = 0; i < n; i++) {
+        if(s[i] == '0') end[i+1] = i;
+        else end[i+1] = end[i];
+    }
+
+    set<pair<ll,ll>> op;
     for(int i = 0; i < m; i++) {
         ll l,r;
         cin >> l >> r;
-        if(l != r) {
-            ll ones = pre[r]-pre[l-1];
-            ll sz = r-l+1;
-            string ss = "";
-            for(int i = 0; i < (sz-ones); i++) ss += "0";
-            for(int i = 0; i < ones; i++) ss += "1";
-            string left = "", right = "";
-            // if(l-2 >= 0) left = s.substr(0,l-1);
-            if(l-2 >= 0) left = pre_str[l-2];
-            // if(r < n) right = s.substr(r,n-r);
-            if(r < n) right = suff_str[r];
-            string t = left + ss + right;
-            if(!t.empty()) rst.insert(t);
+        l--;
+        l = start[l];
+        r = end[r];
+
+        if(l > r) {
+           l = r = -1;
         }
-        else {
-            rst.insert(s);
-        }
+        op.insert({l,r});
     }
-    cout << (ll)rst.size();
+    cout << (ll)op.size();
 }
 int main() {
     // your code goes here
