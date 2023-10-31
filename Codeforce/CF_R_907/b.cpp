@@ -38,24 +38,26 @@ void solve() {
     vector<int> b(q);
     for(auto &x: b) cin >> x;
 
-    vector<int> mn = b;
-    for(int i = 1; i < q; i++) {
-        mn[i] = min(mn[i],mn[i-1]); 
-    }
+    // Approach 2:
+    // count the trailing zeroes
+    vector<vector<int>> ctz(31);
 
-    mn.resize(unique(mn.begin(),mn.end())-mn.begin());
+    for(int i = 0; i < n; i++) {
+        ctz[__builtin_ctz(a[i])].push_back(i);
+    }
     
-    // Brute force approach
-    for(auto &x: mn) {
-        for(auto &y: a) {
-            long long num = 1LL << x;
-            long long mul = 1LL << (x-1);
-            if(y%num == 0) y += mul;
+    for(auto &x: b) {
+        for(int z = x; z <= 30; z++) {
+            for(auto &idx: ctz[z]) {
+                a[idx] += 1<<(x-1);
+                ctz[x-1].push_back(idx);
+            }
+            // number with the index in ctz[z] are no longer divisible by z
+            ctz[z].clear();
         }
     }
 
     for(auto &x: a) cout << x << " ";
-    
 
 
 
