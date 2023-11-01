@@ -34,6 +34,13 @@ void solve() {
     dist[src] = 0;
 
     priority_queue<pii, vector<pii>, greater<pii>> pq;
+    /*
+    To do:
+    - Try with default priority queue 
+    - with negative weight approach i.e. pq.push({-dist[to],to});
+    - It is failing in my first attempt
+    - Figure out why it is failing 
+    */
     // priority_queue<pii> pq;
     pq.push({0,src}); // len, node
 
