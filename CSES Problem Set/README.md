@@ -22,3 +22,10 @@
 ### Round Trip 
 
 - DFS (Detect & print the cycle)
+
+### Shortest Path - I
+
+- Dijkstra's Algorithm : Single source shortest path (with no negative egde)
+- TODO required
+    - Implementation with default priority queue is not working
+    - Approach Reference : Competitive Programmer's Handbook (Page 128)
