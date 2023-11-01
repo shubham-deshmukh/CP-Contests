@@ -29,3 +29,7 @@
 - TODO required
     - Implementation with default priority queue is not working
     - Approach Reference : Competitive Programmer's Handbook (Page 128)
+
+### Shortest Path - I (Using Set)
+
+- Dijkstra's implementation using set
