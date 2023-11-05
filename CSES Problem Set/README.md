@@ -37,3 +37,16 @@
 ### Shortest Path - II
 
 - Floyd-Warshall
+
+### Flight Discount
+
+- Dijkstra (Single Source Shortest Path with no-negative weight)
+- There are two approaches 
+    - Without Graph Modelling
+    - Graph Modelling (using state)
+- TODO required
+    - Solve using graph modelling approach
+    - reference : 
+        - https://codeforces.com/blog/entry/45897
+        - https://usaco.guide/problems/cses-1195-flight-discount/solution#solution-2
+    
