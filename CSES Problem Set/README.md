@@ -50,3 +50,8 @@
         - https://codeforces.com/blog/entry/45897
         - https://usaco.guide/problems/cses-1195-flight-discount/solution#solution-2
     
+### Cycle Finding
+
+- Bellman ford 
+    - Detection of negative weight cycle
+    - Print the cycle
