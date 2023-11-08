@@ -55,3 +55,9 @@
 - Bellman ford 
     - Detection of negative weight cycle
     - Print the cycle
+
+### Flight Routes
+
+- Dijkstra
+    - Generalization of Dijkstra for K shortest distance
+    - Nice problem to understand Dijkstra's working in detail
