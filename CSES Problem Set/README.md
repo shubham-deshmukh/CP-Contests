@@ -71,4 +71,7 @@
 - Finding cycle in Directed Graph using states/colors
 - Topological sort using DFS
 - ToDo
-    - Implement Topological sort using BFS
+    - Implement Topological sort using BFS (Completed)
+
+### Course Schedule - using BFS
+- Topological sort using BFS
