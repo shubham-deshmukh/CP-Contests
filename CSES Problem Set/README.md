@@ -61,3 +61,8 @@
 - Dijkstra
     - Generalization of Dijkstra for K shortest distance
     - Nice problem to understand Dijkstra's working in detail
+
+### Round Trip II
+- Finding cycle in Directed Graph
+- ToDo
+    - Implement using colors (unvisited, visited, explored)
