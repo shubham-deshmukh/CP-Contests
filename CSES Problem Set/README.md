@@ -65,4 +65,10 @@
 ### Round Trip II
 - Finding cycle in Directed Graph
 - ToDo
-    - Implement using colors (unvisited, visited, explored)
+    - Implement using colors/states (unvisited, visited, explored)
+
+### Course Schedule
+- Finding cycle in Directed Graph using states/colors
+- Topological sort using DFS
+- ToDo
+    - Implement Topological sort using BFS
