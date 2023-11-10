@@ -75,3 +75,12 @@
 
 ### Course Schedule - using BFS
 - Topological sort using BFS
+
+### Longest Flight Route
+- Approaches
+    1. Dijkstra (Failed! - Did not pass all the test cases) \[TLE\] 
+    2. Topological sort
+    3. Dynamic Programming
+- TODO
+    - Solve using approach 2 and 3.
+
