@@ -80,7 +80,7 @@
 - Approaches
     1. Dijkstra (Failed! - Did not pass all the test cases) \[TLE\] 
     2. Topological sort
-    3. Dynamic Programming
+    3. Dynamic Programming (Failed - Did not pass all the test cases)
 - TODO
     - Solve using approach 2 and 3.
 
