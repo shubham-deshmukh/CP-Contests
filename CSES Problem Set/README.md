@@ -93,3 +93,8 @@
 
 ### Investigation
 - Dijkstra with states
+
+### Planets Queries I
+- Binary Lifting
+- Implementation : 
+    - Use array instead of vector
