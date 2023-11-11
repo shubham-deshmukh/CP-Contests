@@ -90,3 +90,6 @@
     1. Topological sort (BFS version/ Kahn's Algo) + DP 
         - Bottom-Up Approach (Recommonded)
         - Top-Down Approach (Check https://usaco.guide/problems/cses-1681-game-routes/solution)
+
+### Investigation
+- Dijkstra with states
