@@ -98,3 +98,11 @@
 - Binary Lifting
 - Implementation : 
     - Use array instead of vector
+
+### Road Reparation
+- Minimum Spanning Tree (MST)
+- Implemenation:
+    - Krushkal
+    - Prim's
+- TODO
+    - Implement using Prim
