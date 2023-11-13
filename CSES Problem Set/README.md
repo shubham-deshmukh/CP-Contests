@@ -109,3 +109,6 @@
 
 ### Road Construction
 - Dijoint set union by size
+
+### Flight Routes Check
+- Strongly connected Components (SCC)
