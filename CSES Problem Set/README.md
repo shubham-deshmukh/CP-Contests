@@ -106,3 +106,6 @@
     - Prim's
 - TODO
     - Implement using Prim
+
+### Road Construction
+- Dijoint set union by size
