@@ -1,5 +1,18 @@
 # CSES Problem Set
 
+## Sorting and Searching
+
+### Distinct Numbers
+- Remove duplicates
+- Approaches
+    - Set / map
+
+### Apartments
+- Sorting + Greedy
+
+### Ferris Wheel
+
+
 ## Graph Algorithms
 
 ### Counting Rooms
