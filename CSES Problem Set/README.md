@@ -112,3 +112,6 @@
 
 ### Flight Routes Check
 - Strongly connected Components (SCC)
+
+### Planets and Kingdoms
+- Strongly connected Components (SCC)
