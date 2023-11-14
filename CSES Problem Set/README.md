@@ -30,6 +30,12 @@
 - Approaches
     - Two pointer 
     - Online mapping
+        - Why unordered map is not working (instead of map)?
+
+### Maximum Subarray Sum
+- Approaches
+    - Prefix sum (Recommonded: Why? - Easy to model the solution)
+    - Kadane's algorithm
 
 ## Graph Algorithms
 
