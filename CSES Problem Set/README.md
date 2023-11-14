@@ -16,6 +16,11 @@
 ### Concert Tickets
 - Upper bound + Set/multiset
 
+### Restaurant Customers
+- Critical Thinking
+    - Make entry when customer enters the restaurant
+    - Remove entry when customer leaves the restaurant
+
 ## Graph Algorithms
 
 ### Counting Rooms
