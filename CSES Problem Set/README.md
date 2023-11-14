@@ -11,6 +11,7 @@
 - Sorting + Greedy
 
 ### Ferris Wheel
+- Sorting + Two pointers
 
 ### Concert Tickets
 - Upper bound + Set/multiset
