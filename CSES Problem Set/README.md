@@ -37,6 +37,12 @@
     - Prefix sum (Recommonded: Why? - Easy to model the solution)
     - Kadane's algorithm
 
+### Stick Lengths
+- Approach
+    - Mathematical observation
+    - Ternary Search (TODO)
+
+
 ## Graph Algorithms
 
 ### Counting Rooms
