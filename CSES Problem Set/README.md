@@ -21,6 +21,11 @@
     - Make entry when customer enters the restaurant
     - Remove entry when customer leaves the restaurant
 
+### Movie Festival
+- Standard problem
+- Approach : Sorting + Greedy
+    - Greedy : Select greedly Earliest ending next event
+
 ## Graph Algorithms
 
 ### Counting Rooms
