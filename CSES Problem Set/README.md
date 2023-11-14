@@ -12,6 +12,8 @@
 
 ### Ferris Wheel
 
+### Concert Tickets
+- Upper bound + Set/multiset
 
 ## Graph Algorithms
 

@@ -13,37 +13,27 @@ void solve() {
     int n,m;
     cin >> n >> m;
 
-    vector<int> price(n);
-    for(auto &p: price) cin >> p;
+    multiset<int> ms;
+    for(int i = 0; i < n; i++) {
+        int price;
+        cin >> price;
+        ms.insert(price);
+    }
 
     vector<int> max_price(m);
     for(auto &p: max_price) cin >> p;
 
-    unordered_map<int,int> freq;
-    set<int> s;
-
-    for(auto p: price) {
-        freq[p]++;
-        s.insert(p);
-    }
-
     for(auto p: max_price) {
-        auto it = s.upper_bound(p);
+        auto it = ms.upper_bound(p);
 
-        if(it == s.begin()) {
-            cout << -1;
-        }
+        if(it == ms.begin()) cout << -1;
         else {
             it--;
-            freq[*it]--;
             cout << *it;
-            if(freq[*it] == 0) {
-                s.erase(it);
-            }
+            ms.erase(it);
         }
         cout << endl;
     }
-
 }
 
 int main() {
