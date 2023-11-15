@@ -57,6 +57,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - TODO 
     - Look for mathematical proof / modelling
 
+### Collecting Numbers
+
+- Index order
+
 
 ## Graph Algorithms
 
