@@ -67,6 +67,9 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Playlist
 - Approach: Sliding window
 
+### Towers
+- Binary Search (Upper/lower bound)
+
 ## Graph Algorithms
 
 ### Counting Rooms
