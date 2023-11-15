@@ -32,15 +32,30 @@
     - Online mapping
         - Why unordered map is not working (instead of map)?
 
-### Maximum Subarray Sum
+### Maximum Subarray Sum*
 - Approaches
     - Prefix sum (Recommonded: Why? - Easy to model the solution)
     - Kadane's algorithm
 
-### Stick Lengths
+### Stick Lengths*
 - Approach
     - Mathematical observation
     - Ternary Search (TODO)
+
+### Missing Coin Sum*
+- Approach
+
+> At any index i in a sorted array a, currSum represents sum(a[ 0...i ]).
+We can form every possible sum from 1...currSum, when we are at index i. So the next possible smallest sum at index i can be currSum+1.
+We can get currSum+1 as the answer if and only if a[i+1] > currSum + 1, otherwise we would be able to form subsets with sums from 1...(currSum + a[i+1])
+( just add a[i+1] to all subsets which give sum 1...currSum to get subsets giving sum 1...currSum+a[i+1]). Try this on pen and paper and it will be more clear. 
+Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
+
+- Doubt 
+    - How can we form every possible sum from 1...curr_sum, when we are at index i.
+
+- TODO 
+    - Look for mathematical proof / modelling
 
 
 ## Graph Algorithms
