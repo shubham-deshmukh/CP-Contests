@@ -61,6 +61,11 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 
 - Index order
 
+### Collecting Numbers II
+- Unsolved
+
+### Playlist
+- Approach: Sliding window
 
 ## Graph Algorithms
 
