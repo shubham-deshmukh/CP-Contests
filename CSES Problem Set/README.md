@@ -70,6 +70,12 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Towers
 - Binary Search (Upper/lower bound)
 
+### Traffic Lights
+- Unsolved
+
+### Josephus Problem I
+- Linked List
+
 ## Graph Algorithms
 
 ### Counting Rooms
