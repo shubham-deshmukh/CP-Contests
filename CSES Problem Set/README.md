@@ -82,6 +82,17 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
     - Explore other approaches
     Ref: [https://cses.fi/problemset/hack/2163/entry/7747668/]
 
+### Nested Ranges Check
+- Unsolved
+
+### Nested Ranges Count
+-Unsolved
+
+### Room Allocation
+- Approaches
+    - Sorting & constructive algorithm
+    - Using Min Heap
+
 ## Graph Algorithms
 
 ### Counting Rooms
