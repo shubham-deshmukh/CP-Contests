@@ -76,6 +76,12 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Josephus Problem I
 - Linked List
 
+### Josephus Problem II
+- Policy based data structure
+- TODO
+    - Explore other approaches
+    Ref: [https://cses.fi/problemset/hack/2163/entry/7747668/]
+
 ## Graph Algorithms
 
 ### Counting Rooms
