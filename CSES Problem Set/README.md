@@ -98,7 +98,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
     - Binary Search
 - TODO
     - Solve using different Binary Search Template
-    
+
+### Tasks and Deadlines
+- Approach
+    - Greedy --> Sorting
 
 ## Graph Algorithms
 
