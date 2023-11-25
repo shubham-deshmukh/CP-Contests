@@ -103,6 +103,11 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - Greedy --> Sorting
 
+### Reading Books
+- Approach
+    - Constructive Algorithm
+    - Critical Thinking
+
 ## Graph Algorithms
 
 ### Counting Rooms
