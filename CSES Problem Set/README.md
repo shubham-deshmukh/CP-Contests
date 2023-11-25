@@ -108,6 +108,16 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
     - Constructive Algorithm
     - Critical Thinking
 
+### Sum of Three Values
+- Unsolved
+
+### Sum of Four Values
+- Unsolved
+
+### Nearest Smaller Values
+- Approach
+    - Stack
+
 ## Graph Algorithms
 
 ### Counting Rooms
