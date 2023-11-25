@@ -93,6 +93,13 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
     - Sorting & constructive algorithm
     - Using Min Heap
 
+### Factory Machines
+- Approach
+    - Binary Search
+- TODO
+    - Solve using different Binary Search Template
+    
+
 ## Graph Algorithms
 
 ### Counting Rooms
