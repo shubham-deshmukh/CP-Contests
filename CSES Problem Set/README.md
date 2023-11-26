@@ -118,8 +118,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - Stack
 
-### Subarray Sums I
-- Sliding Window / Two pointer
+### Subarray Sums I & Subarray Sums II
+- Approaches 
+    - Sliding Window / Two pointer (Ref: https://cses.fi/problemset/hack/1660/entry/7784181/)
+    - Prefix sum
 
 ### Subarray Divisibility
 - Approach
