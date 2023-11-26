@@ -118,6 +118,13 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - Stack
 
+### Subarray Sums I
+- Sliding Window / Two pointer
+
+### Subarray Divisibility
+- Approach
+    - Model mathematically + Prefix sum
+
 ## Graph Algorithms
 
 ### Counting Rooms
