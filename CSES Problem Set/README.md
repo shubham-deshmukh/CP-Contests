@@ -127,6 +127,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - Model mathematically + Prefix sum
 
+### Subarray Distinct Values
+- Approach
+    - Sliding Window
+
 ## Graph Algorithms
 
 ### Counting Rooms
