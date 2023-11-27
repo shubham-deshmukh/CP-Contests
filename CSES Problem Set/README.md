@@ -140,7 +140,9 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
         - Multiset
         - Order Statistic Tree
 
-
+### Sliding Cost
+- Approach
+    - Sliding window + min cost making all elements equal
 
 
 ## Graph Algorithms
