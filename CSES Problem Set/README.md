@@ -282,3 +282,9 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
     - Segment tree
 -ToDO
     - Look for other implementation
+
+### Dynamic Range Minimum Queries
+- Approach
+    - Segment tree
+-ToDO
+    - Look for other implementation
