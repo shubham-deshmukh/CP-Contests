@@ -1,6 +1,6 @@
 # CSES Problem Set
 
-## Sorting and Searching
+# Sorting and Searching
 
 ### Distinct Numbers
 - Remove duplicates
@@ -144,8 +144,11 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - Sliding window + min cost making all elements equal
 
+### Maximum Subarray Sum II
+- Approach
+    - prefix sum
 
-## Graph Algorithms
+# Graph Algorithms
 
 ### Counting Rooms
 
@@ -260,3 +263,8 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 
 ### Planets and Kingdoms
 - Strongly connected Components (SCC)
+
+# Range Queries
+
+### Static Range Sum Queries
+- prefix sum
