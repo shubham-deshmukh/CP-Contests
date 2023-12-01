@@ -267,9 +267,18 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 # Range Queries
 
 ### Static Range Sum Queries
-- prefix sum
+- Approach
+    - Prefix sum
 
 ### Static Range Minimum Queries
-- segment tree
+- Approach
+    - Segment tree
+    - Sparse Table
 - ToDo
     - Implement using sparse table
+
+### Dynamic Range Sum Queries
+- Approach
+    - Segment tree
+-ToDO
+    - Look for other implementation
