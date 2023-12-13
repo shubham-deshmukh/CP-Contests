@@ -293,3 +293,9 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - prefix xor (similar to prefix sum)
     - Segment tree
+
+### Range Update Queries
+- Approach
+    - Segment tree
+-TODO
+    - Look for other approaches (implementation)
