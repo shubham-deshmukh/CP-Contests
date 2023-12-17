@@ -3,13 +3,6 @@
 
 using namespace std;
 
-#define pb push_back
-#define mp make_pair
-#define ll long long
-#define lld long double
-#define ull unsigned long long
-#define ff first
-#define ss second
 #define all(x) x.begin(), x.end()
 #define rep(i,start,end) for(i = start; start < end ? i < end : i > end; start < end ? i += 1 : i -= 1)
 #define endl "\n"
@@ -39,13 +32,13 @@ using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistic
 const int MAX_N = 1e5;
 const int mod = 1e9+7;
 
-inline ll gcd(ll a, ll b) {ll r; while (b) {r = a % b; a = b; b = r;} return a;}
-inline ll lcm(ll a, ll b) {return a / gcd(a, b) * b;}
+inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
+inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
 
 void solve() {
 
 }
-int main() {
+signed main() {
 	// your code goes here
 	fast;
     #ifndef ONLINE_JUDGE
@@ -54,7 +47,7 @@ int main() {
         freopen("../../../error.txt", "w", stderr);
     #endif
     
-	ll t = 1;
+	long long t = 1;
 	cin >> t;
 	
 	while(t--) {
