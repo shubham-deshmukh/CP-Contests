@@ -3,8 +3,12 @@
 
 using namespace std;
 
-#define all(x) x.begin(), x.end()
-#define rep(i,start,end) for(i = start; start < end ? i < end : i > end; start < end ? i += 1 : i -= 1)
+#ifndef ONLINE_JUDGE
+#include "../../../debug.h"
+#else
+#define debug(x...)
+#endif
+
 #define endl "\n"
 #define fast ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 
