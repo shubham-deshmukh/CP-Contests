@@ -1,101 +1,71 @@
+#include <iostream>
 #include <bits/stdc++.h>
+
 using namespace std;
 
-#define ll long long
-#define all(x) x.begin(), x.end()
+#ifndef ONLINE_JUDGE
+#include "../../../debug.h"
+#else
+#define debug(x...)
+#endif
+
 #define endl "\n"
 #define fast ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 
+// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html
+template<class Fun> class y_combinator_result {
+    Fun fun_;
+public:
+    template<class T> explicit y_combinator_result(T &&fun): fun_(std::forward<T>(fun)) {}
+    template<class ...Args> decltype(auto) operator()(Args &&...args) { return fun_(std::ref(*this), std::forward<Args>(args)...); }
+};
+template<class Fun> decltype(auto) y_combinator(Fun &&fun) { return y_combinator_result<std::decay_t<Fun>>(std::forward<Fun>(fun)); }
+
+
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update
+
+using namespace __gnu_pbds;
+
+template<class T> 
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+// X.find_by_order(k) return kth element. 0 indexed.
+// X.order_of_key(k) returns count of elements strictly less than k.
+
+
+const int MAX_N = 1e5;
 const int mod = 1e9+7;
 
+inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
+inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
+
+const int dx[] = {-1,+0,+1,+0}; // up, right, down, left
+const int dy[] = {+0,+1,+0,-1};
+
 void solve() {
-    int n, m, q;
-    cin >> n >> m >> q;
+    int n,m,k;
+    cin >> n >> m >> k;
 
-    vector<string> g(n, string(m,'.'));
-    int i = 0, j = 0;
-    char dir = 'u';
+    vector<string> g(n,string(m,'.'));
 
-    auto paintBlack = [&]()->void {
-        int ii = 0, jj = 0;
-        if(dir == 'u') { // up
-            dir = 'r';
-            jj = 1;
-        }
-        else if(dir == 'r') {
-            dir = 'd';
-            ii = 1;
-        }
-        else if(dir == 'd') {
-            dir = 'l';
-            jj = -1;
-        }
-        else if(dir == 'l') {
-            dir = 'u';
-            ii = -1;
-        }
-
-        g[i][j] = '#';
-        i += ii, j += jj;
-        i = (i+n)%n;
-        j = (j+m)%m;        
-        if(i+ii >= 0 && i+ii <= n && j+jj >= 0 && j+jj <= m) {
-            // i += ii, j += jj;
+    int dir = 0;
+    int x = 0, y = 0;
+    while(k--) {
+        if(g[x][y] == '.') {
+            g[x][y] = '#';
+            dir = (dir+1)%4;
         }
         else {
-            // cout << "error";
+            g[x][y] = '.';
+            dir = (dir+3)%4;
         }
-        
-    };
-
-    auto paintWhite = [&]()->void {
-        int ii = 0, jj = 0;
-        if(dir == 'u') { // up
-            dir = 'l';
-            jj = -1;
-        }
-        else if(dir == 'r') {
-            dir = 'u';
-            ii = -1;
-        }
-        else if(dir == 'd') {
-            dir = 'r';
-            jj = 1;
-        }
-        else if(dir == 'l') {
-            dir = 'd';
-            ii = 1;
-        }
-
-        g[i][j] = '.';
-        i += ii, j += jj;
-        i = (i+n)%n;
-        j = (j+m)%m;
-        
-        if(i+ii >= 0 && i+ii <= n && j+jj >= 0 && j+jj <= m) {
-        }
-        else {
-            // cout << "error";    
-        }    
-    };    
-
-    while(q--) {
-        if(g[i][j] == '.') { // white
-            paintBlack();
-
-    // for(auto s: g) cout << s << endl;  cout << endl;  
-    // cout << dir << endl;        
-        }
-        else { // black
-            paintWhite();
-            // for(auto s: g) cout << s << endl;  cout << endl;  
-            // cout << dir << endl;
-        }
+        x = (x+dx[dir]+n)%n;
+        y = (y+dy[dir]+m)%m;
     }
+
     for(auto s: g)
         cout << s << endl;
-}
-
+}  
 signed main() {
     // your code goes here
     fast;
@@ -105,8 +75,14 @@ signed main() {
         freopen("../../../error.txt", "w", stderr);
     #endif
     
-    solve();
+    long long t = 1;
+    // cin >> t;
     
+    while(t--) {
+        solve();
+        
+        if(t > 0) cout << endl;
+    }
     cout<<fixed<<setprecision(10);
     cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n";    
     return 0;
