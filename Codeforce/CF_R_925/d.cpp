@@ -39,33 +39,28 @@ const int mod = 1e9+7;
 inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
 inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
 
-#define int int64_t
+#define int int64_t 
+
 void solve() {
-    int n;
-    cin >> n;
+    int n, x, y;
+    cin >> n >> x >> y;
 
     vector<int> A(n);
     for(auto &ai: A) cin >> ai;
 
-    if(n == 1) {
-        cout << "YES";
-        return;
-    }
-    int sum = accumulate(A.begin(), A.end(), int(0));
-    int x = sum / n;
+    map<pair<int,int>, int> mp; // cond , count
+    int cnt = 0;
+    for(auto a: A) {
+        pair<int,int> pai = {a%x, a%y};
+        pair<int,int> paj = {(x-a%x)%x, a%y};
 
-    for(int i = 0; i < n; i++) {
-        if(A[i] >= x) {
-            if(i+1 < n)
-                A[i+1] += A[i]-x;
+        if(mp.count(paj)) {
+            cnt += mp[paj];
         }
-        else {
-            cout << "NO";
-            return;
-        }
+
+        mp[pai] += 1;
     }
-    
-    cout << "YES";
+    cout << cnt;
 }
 signed main() {
     // your code goes here
