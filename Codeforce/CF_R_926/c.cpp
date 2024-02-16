@@ -41,13 +41,29 @@ inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
 
 #define int int64_t
 void solve() {
-    int n;
-    cin >> n;
+    int k, x, a; 
+    cin >> k >> x >> a;
 
-    vector<int> A(n);
-    for(auto &ai: A) cin >> ai;
+    // k : multiplier, x : losses, a : initial money
 
-    cout << *max_element(A.begin(), A.end()) - *min_element(A.begin(), A.end());
+    if(a <= x) {
+        cout << "NO";
+        return;
+    }
+
+    int used = 0;
+    for(int i = 0; i <= x; i++) {
+        // Each turn make a bet to cover up the 
+        // lost amount i.e profit > loss 
+        int bet = used / (k-1) + 1;
+        used += bet;
+
+        if(used > a) { // Does sasha have sufficient amount to cover the loss?
+            cout << "NO";
+            return;
+        }
+    }
+    cout << "YES";
 }
 signed main() {
     // your code goes here
