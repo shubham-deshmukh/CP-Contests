@@ -140,19 +140,31 @@ void solve() {
     vector<int> A(n+n);
     for(auto &ai: A) cin >> ai;
 
+    // More intuitive approach
+    vector<int> start(n,-1), end(n);
+    for(int i = 0; i < 2*n; i++) {
+        int pos = A[i]-1;
+        if(start[pos]==-1)
+            start[pos] = i;
+        else 
+            end[pos] = i;
+        
+    }
+
+    vector<int> order(n);
+    iota(order.begin(), order.end(), 0);
+    sort(order.begin(), order.end(),[&](int i, int j) {
+        return start[i] > start[j];
+    });
+
     vector<int> B(n+n,0);
     SegmentTree<int> st(2*n,B);
 
     vector<int> ans(n);
-    map<int,int> vis;
-    for(int i = 0; i < 2*n; i++) {
-        if(vis.count(A[i])) {
-            int pos = vis[A[i]];
-            ans[A[i]-1] = st.query(pos, i+1);
-            st.update(pos,1);
-        }
-        else
-            vis[A[i]] = i;
+    
+    for(auto i: order) {
+        ans[i] = st.query(start[i],end[i]);
+        st.update(end[i],1);
     }
 
     for(auto a: ans) cout << a << " ";
