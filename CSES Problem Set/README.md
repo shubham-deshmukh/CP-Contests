@@ -299,3 +299,9 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
     - Segment tree
 -TODO
     - Look for other approaches (implementation)
+
+# String Algorithms
+
+### String Matching
+- Approach 
+    - KMP
