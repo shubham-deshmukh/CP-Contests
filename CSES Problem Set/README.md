@@ -320,3 +320,7 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Finding Periods
 - Approach
     - String hashing
+
+### Longest Palindrome
+- Approach
+    - Manacher Algorithm
