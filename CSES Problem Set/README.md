@@ -316,3 +316,7 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Finding Borders
 - Approach
     - String hashing
+
+### Finding Periods
+- Approach
+    - String hashing
