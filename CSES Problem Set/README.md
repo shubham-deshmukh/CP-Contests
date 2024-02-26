@@ -303,5 +303,16 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 # String Algorithms
 
 ### String Matching
+-TODO for most of the problems : Solve using various alternate algos
+    - Prefix Function - (KMP) 
+    - Hashing (Rabin-Karp)
+    - Z-function
+    - Suffix Array
+    - Aho-Corasick
+
 - Approach 
     - KMP
+
+### Finding Borders
+- Approach
+    - String hashing
