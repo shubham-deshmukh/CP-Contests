@@ -324,3 +324,9 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Longest Palindrome
 - Approach
     - Manacher Algorithm
+
+### Finding Patterns
+- Appraoch
+    - Suffix Array
+- ToDo
+    - Aho-Corasick
