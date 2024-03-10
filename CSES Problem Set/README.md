@@ -352,3 +352,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - ToDo
     - Aho-Corasick
     - Suffix Automaton    
+
+### Repeating Substring
+- Approach
+    - Suffix Array + LCP (Longest Common Prefix)
+- ToDo
+    - Aho-Corasick
+    - Suffix Automaton  
