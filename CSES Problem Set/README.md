@@ -327,6 +327,14 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 
 ### Finding Patterns
 - Appraoch
-    - Suffix Array
+    - Suffix Array + Binary Search
 - ToDo
     - Aho-Corasick
+    - Suffix Automaton
+
+### Counting Patterns
+- Appraoch
+    - Suffix Array + Binary Search
+- ToDo
+    - Aho-Corasick
+    - Suffix Automaton
