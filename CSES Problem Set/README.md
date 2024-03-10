@@ -338,3 +338,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - ToDo
     - Aho-Corasick
     - Suffix Automaton
+
+### Pattern Positions
+- Appraoch
+    - Suffix Array + Binary Search
+- ToDo
+    - Aho-Corasick
+    - Suffix Automaton
