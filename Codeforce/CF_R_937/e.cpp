@@ -39,31 +39,42 @@ const int mod = 1e9+7;
 inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
 inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
 
+#define int int64_t
 void solve() {
     int n;
     cin >> n;
 
-    int start = 1;
-    vector<string> g(2*n, string(2*n,'.'));
-    for(int i = 0; i < n; i++) {
-        int turn = start;
-        for(int j = 0; j < n; j++) {
-            char c = '.';
-            if(turn) c = '#';
-            turn = 1 - turn;
-            g[2*i][2*j] = c;
-            g[2*i][2*j+1] = c;
-            g[2*i+1][2*j] = c;
-            g[2*i+1][2*j+1] = c;
+    string s;
+    cin >> s;
 
+    vector<int> cand;
+    for(int i = 1; i <= sqrtl(n); i++) {
+        if(n%i == 0) {
+            cand.push_back(i);
+            if(i != n/i)
+                cand.push_back(n/i);
         }
-        start = 1 - start;
     }
+    sort(cand.begin(), cand.end());
 
-    for(auto s: g)
-        cout << s << endl;
+    for(auto k: cand) {
+        string period1 = s.substr(0,k);
+        string period2 = s.substr(n-k,k);
 
+        int diff1 = 0, diff2 = 0;
+        for(int i = 0; i < n; i++) {
+            diff1 += (s[i] != period1[i%k]);
+            diff2 += (s[n-1-i] != period2[((k-1-i)%k + k) %k]);
+        }
+        int diff = min(diff1, diff2);
+        if(diff < int(2)) {
+            cout << k;
+            return;
+        }
+
+    }
 }
+
 signed main() {
     // your code goes here
     fast;
@@ -72,14 +83,13 @@ signed main() {
         freopen("../../../output.txt", "w", stdout);
         freopen("../../../error.txt", "w", stderr);
     #endif
-    
     long long t = 1;
     cin >> t;
     
     while(t--) {
         solve();
         
-        // if(t > 0) cout << endl;
+        if(t > 0) cout << endl;
     }
     cout<<fixed<<setprecision(10);
     cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n";    
