@@ -43,25 +43,18 @@ void solve() {
     int n;
     cin >> n;
 
-    int start = 1;
-    vector<string> g(2*n, string(2*n,'.'));
     for(int i = 0; i < n; i++) {
-        int turn = start;
         for(int j = 0; j < n; j++) {
-            char c = '.';
-            if(turn) c = '#';
-            turn = 1 - turn;
-            g[2*i][2*j] = c;
-            g[2*i][2*j+1] = c;
-            g[2*i+1][2*j] = c;
-            g[2*i+1][2*j+1] = c;
-
+            if((i+j)&1) cout << "..";
+            else cout << "##";
         }
-        start = 1 - start;
+        cout << endl;
+        for(int j = 0; j < n; j++) {
+            if((i+j)&1) cout << "..";
+            else cout << "##";
+        }
+        cout << endl;           
     }
-
-    for(auto s: g)
-        cout << s << endl;
 
 }
 signed main() {
