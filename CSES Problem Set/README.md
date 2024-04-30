@@ -300,6 +300,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 -TODO
     - Look for other approaches (implementation)
 
+### Hotel Queries
+- Approach
+    - Segment Tree (Point Update and range queries + search)
+
 # String Algorithms
 
 ### String Matching
