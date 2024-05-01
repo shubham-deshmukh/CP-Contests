@@ -304,6 +304,18 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach
     - Segment Tree (Point Update and range queries + search)
 
+### List Removals 
+- Approach
+    - Segment Tree (Point Update and range queries + search)
+    - Policy based data structure
+
+### Salary Queries
+- Approach 
+    - Segment Tree (Point Update and range queries + search)
+    - Policy Based data structure
+- ToDo
+    - Segment Tree (Point Update and range queries + search)
+
 # String Algorithms
 
 ### String Matching
