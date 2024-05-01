@@ -320,6 +320,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - Approach 
     - Segment Tree (Point Update and range queries)
 
+### Pizzeria Queries
+- Approach
+    - Mathematical modelling + Segment Tree 
+    
 # String Algorithms
 
 ### String Matching
