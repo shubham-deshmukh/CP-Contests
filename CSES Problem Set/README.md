@@ -316,6 +316,10 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 - ToDo
     - Segment Tree (Point Update and range queries + search)
 
+### Prefix Sum Queries
+- Approach 
+    - Segment Tree (Point Update and range queries)
+
 # String Algorithms
 
 ### String Matching
