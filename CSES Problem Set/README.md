@@ -323,7 +323,11 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 ### Pizzeria Queries
 - Approach
     - Mathematical modelling + Segment Tree 
-    
+
+### Subarray Sum Queries
+- Approach
+    - Segment Tree (Point Update and range queries)
+
 # String Algorithms
 
 ### String Matching
