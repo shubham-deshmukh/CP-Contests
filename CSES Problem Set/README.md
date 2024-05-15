@@ -326,7 +326,11 @@ Reference : [https://discuss.codechef.com/t/cses-missing-coin-sum/84039/3]
 
 ### Subarray Sum Queries
 - Approach
+    - Segment Tree (range queries)
+
+### Distinct Values Queries
     - Segment Tree (Point Update and range queries)
+    - Mo's algorithm
 
 # String Algorithms
 
