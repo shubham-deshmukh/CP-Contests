@@ -47,19 +47,20 @@ void solve() {
         cout << -1;
         return;
     }
-    if(a == b and b == c and a == 0) {
-        cout << 0;
-        return;
+    int ans = 0;
+    if(a == 0) {
+        ans = min(b,c);
     }
-    int ans = a;
-    while(a) {
-        if(b > c)
-            swap(b,c);
-        a -= 1;
-        c -= 1;
+    else {
+        ans = a;
+        while(a) {
+            if(b > c)
+                swap(b,c);
+            a -= 1;
+            c -= 1;
+        }
+        ans += min(b,c);
     }
-    ans += min(b,c);
-    if(ans == 0 or (b+c)&1) ans = -1;
     cout << ans;
 }
 signed main() {
