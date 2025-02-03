@@ -29,29 +29,37 @@ inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % 
 inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
 
 void solve() {
-    int n;
-    cin >> n;
+    int n, k;
+    cin >> n >> k;
+
     vector<int> A(n);
     for(auto &a: A) cin >> a;
 
-    // a ar ar^2 ar^3 ...
-    // find the common difference
-    // r = ar/a = ar^2/ar
-    // a b c
-    // b/a = c/b
-    // b^2 = a * c
-    if(n == 2) {
-        cout << "Yes";
-        return;
-    }
+    int mx = n - (k-1);
 
-    for(int i = 1; i < n-1; i++) {
-        if(1LL*A[i]*A[i] != 1LL*A[i-1]*A[i+1]) {
-            cout << "No";
-            return;
+    if(mx == 1) {
+        vector<int> C;
+        for(int i = 1; i < n; i += 2)
+            C.push_back(A[i]);
+        C.push_back(0);
+
+        for(int i = 1; i <= (int)C.size(); i++) {
+            if(C[i-1] != i) {
+                cout << i << endl;
+                return;
+            }
         }
     }
-    cout << "Yes";
+    int x = 1 + mx;
+    int ones = 0;
+    for(int i = 1; i < x; i++)
+        ones += (A[i] == 1);
+    
+    if(ones == mx) {
+        cout << 2 << endl;
+        return;
+    }
+    cout << 1 << endl;
 }
 signed main() {
     // your code goes here
@@ -61,7 +69,7 @@ signed main() {
     //     freopen("./output.txt", "w", stdout);
     //     freopen("./error.txt", "w", stderr);
     // #endif
-    // int t; cin >> t; while(t--)
+    int t; cin >> t; while(t--)
     solve();
     
     // cout<<fixed<<setprecision(10);
