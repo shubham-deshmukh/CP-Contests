@@ -1,62 +1,54 @@
-#include<bits/stdc++.h>
-#define endl "\n"
+#include <bits/stdc++.h>
+
 using namespace std;
-/*
-Obs
-- xor == 0 => both numbers has to be same
 
-*/
+// #ifndef ONLINE_JUDGE
+// #include "./debug.h"
+// #else
+// #define debug(x...)
+// #endif
+
+#define endl "\n"
+#define fast ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update
+
+using namespace __gnu_pbds;
+
+template<class T> 
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+// X.find_by_order(k) return kth element. 0 indexed.
+// X.order_of_key(k) returns count of elements strictly less than k.
+
+
+const int MAX_N = 1e5;
+const int mod = 1e9+7;
+
+inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
+inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
+
 void solve() {
-    // Approach : Bruteforce
-    int n, m;
-    cin >> n >> m;
-    string s1 = to_string(n);
-    string s2 = to_string(m);
-    set<int> st1,st2;
-    string num = "";
-    auto rec = [&](const auto &self, int i, string &s1, set<int> &st1)->void {
-        if(i == (int)s1.size()) {
-            if(!num.empty() and num[0] != '0') {
-                st1.insert(stoi(num));
-            }
-            return;
-        }
-        self(self,i+1,s1,st1);
-        num.push_back(s1[i]);
-        self(self,i+1,s1,st1);
-        num.pop_back();
-    };
-    rec(rec,0,s1,st1);
-    num = "";
-    rec(rec,0,s2,st2);
+    int n = 3;
+    vector<int> A(n);
+    for(auto &a: A) cin >> a;
 
-    // for(auto &i: st1) cout << i << " "; cout << endl;
-    // for(auto &i: st2) cout << i << " "; cout << endl;
+    sort(A.begin(), A.end());
 
-    if((int)st1.size() > (int)st2.size())
-        swap(st1,st2);
-    
-    int ans = 0;
-    for(auto &i: st1) {
-        if(st2.find(i) != st2.end()) {
-            ans += 1;
-            cout << i << " ";
-        }
-    }
-    cout << endl;
-    cout << ans << endl;
+    cout << (A[0]*A[1] == A[2]?"Yes":"No");
 }
-
 signed main() {
-
-    ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-        
-    long long t = 1;
-    cin >> t;
-    while(t--) {
-        solve();
-        // if(t) cout << endl;
-    }
+    // your code goes here
+    fast;
+    // #ifndef ONLINE_JUDGE
+    //     freopen("./input.txt", "r", stdin);
+    //     freopen("./output.txt", "w", stdout);
+    //     freopen("./error.txt", "w", stderr);
+    // #endif
+    // int t; cin >> t; while(t--)
+    solve();
+    
+    // cout<<fixed<<setprecision(10);
+    // cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n";    
     return 0;
 }
