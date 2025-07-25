@@ -1,0 +1,137 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// #ifndef ONLINE_JUDGE
+// #include "./debug.h"
+// #else
+// #define debug(x...)
+// #endif
+
+#define endl "\n"
+#define fast ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update
+
+using namespace __gnu_pbds;
+
+template<class T> 
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+// X.find_by_order(k) return kth element. 0 indexed.
+// X.order_of_key(k) returns count of elements strictly less than k.
+
+
+const int MAX_N = 1e5;
+const int mod = 1e9+7;
+
+inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
+inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
+
+vector<int> parent, sz;
+int comp = 0;
+
+int find(int u) {
+    if(parent[u] == u)
+        return u;
+    
+    return parent[u] = find(parent[u]);
+}
+
+bool unite(int u, int v) {
+    u = find(u);
+    v = find(v);
+
+    if(u == v) return false;
+
+    if(sz[u] < sz[v]) swap(u,v);
+
+    parent[v] = u;
+    sz[u] += sz[v];
+    comp -= 1;
+
+    return true;
+}
+
+void solve() {
+    int n;
+    cin >> n;
+
+    parent.assign(n+1,0);
+    sz.assign(n+1,1);
+    comp = n;
+
+    iota(parent.begin(), parent.end(), 0);
+
+    vector<int> A(n+1), cycleStart;
+    vector<vector<int>> adj(n+1);
+    for(int i = 1; i <= n; i++) {
+        cin >> A[i];
+        // i-->A[i]
+        adj[i].push_back(A[i]);
+        if(!unite(i,A[i])) {
+            cycleStart.push_back(A[i]);
+        }
+    }
+
+    // compute the cycle length
+    vector<int> vis(n+1),len(n+1);
+    vector<int> compCycleLen(n+1);
+
+    for(auto &u: cycleStart) {
+        int sz = 0;
+        int v = u;
+        do {
+            vis[v] = 1;
+            sz += 1;
+            v = A[v];
+        } while(v != u);
+
+        // update the cycle length
+        v = u;
+        do {
+            len[v] = sz;
+            v = A[v];
+        } while(v != u);
+        int root = find(u);
+        compCycleLen[root] = sz;
+    }
+
+    // Compute the depth
+    vector<int> depth(n+1);
+    auto dfs = [&](const auto &self, int u)->void {
+        vis[u] = 1;
+        for(auto v: adj[u]) {
+            if(!vis[v]) {
+                self(self,v);   
+            }
+            depth[u] = depth[v] + 1;
+        }
+    };
+
+    for(int i = 1; i <= n; i++) {
+        if(vis[i]) continue;
+
+        dfs(dfs,i);
+    }
+
+
+    for(int i = 1; i <= n; i++) {
+        cout << (len[i]?len[i]: compCycleLen[find(i)]+depth[i]) << " ";
+    }
+}
+signed main() {
+    // your code goes here
+    fast;
+    // #ifndef ONLINE_JUDGE
+    //     freopen("./input.txt", "r", stdin);
+    //     freopen("./output.txt", "w", stdout);
+    //     freopen("./error.txt", "w", stderr);
+    // #endif
+    // int t; cin >> t; while(t--)
+    solve();
+    
+    // cout<<fixed<<setprecision(10);
+    // cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n";    
+    return 0;
+}
