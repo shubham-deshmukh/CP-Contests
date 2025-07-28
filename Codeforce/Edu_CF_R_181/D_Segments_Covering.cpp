@@ -23,38 +23,58 @@ using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistic
 
 
 const int MAX_N = 1e5;
-const int mod = 1e9+7;
 
 inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
 inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
 
 #define int int64_t
-vector<int> smallPrimes = {2,3,5,7};
-int n = 4;
-
-int getCount(int num) {
-    int cnt = 0;
-    for(int mask = 1; mask < (int(1) << n); mask++) {
-        int l = 1;
-        for(int i = 0; i < n; i++) {
-            if((int(1)<<i) & mask) {
-                l = lcm(l,smallPrimes[i]);
-            }
-        }
-        
-        int elt = num / l;
-        int setBits = __builtin_popcountl(mask);
-        cnt += (setBits&1?elt:-elt);
+constexpr int mod = 998244353;
+// a^b % mod
+int binpow(int a, int b, int mod) {
+    a %= mod;
+    int rst = 1;
+    while(b) {
+        if(b&1)
+            rst = (rst * a) % mod;
+        a = (a * a) % mod;
+        b >>= 1;
     }
-
-    return num - cnt;
+    return rst%mod;
 }
 
 void solve() {
-    int l, r;
-    cin >> l >> r;
+    int n, m;
+    cin >> n >> m;
 
-    cout << getCount(r) - getCount(l-1) << "\n";
+    vector<int> l(n), r(n), p(n), q(n);
+    for(int i = 0; i < n; i++) {
+        cin >> l[i] >> r[i] >> p[i] >> q[i];
+    }
+
+    int c1 = 1;
+    vector<vector<int>> X(m+1,vector<int>());
+    for(int i = 0; i < n; i++) {
+        c1 *= ((q[i]-p[i]) % mod * binpow(q[i],mod-2,mod))%mod;
+        c1 %= mod;
+
+        X[l[i]].push_back(i);
+    }
+
+    vector<int> dp(m+2);
+    dp[m+1] = 1;
+
+    for(int i = m; i >= 1; i--) {
+        int sop = 0;
+        for(auto &j: X[i]) {
+            sop += ((p[j] * binpow(q[j]-p[j],mod-2,mod))%mod * dp[r[j]+1]) % mod;
+            sop %= mod;
+        }
+        dp[i] = sop;
+    }
+
+    cout << (dp[1] * c1) % mod;
+
+
 }
 signed main() {
     // your code goes here
@@ -64,7 +84,7 @@ signed main() {
     //     freopen("./output.txt", "w", stdout);
     //     freopen("./error.txt", "w", stderr);
     // #endif
-    int t; cin >> t; while(t--)
+    // int t; cin >> t; while(t--)
     solve();
     
     // cout<<fixed<<setprecision(10);
