@@ -27,15 +27,7 @@ const int mod = 1e9+7;
 
 inline long long gcd(long long a, long long b) {long long r; while (b) {r = a % b; a = b; b = r;} return a;}
 inline long long lcm(long long a, long long b) {return a / gcd(a, b) * b;}
-/*
-obj:
-- A[i] == B[i]
-    - does not affect the result
-- largest i s.t. A[i] != B[i] 
-    - wins the battle if not tie
 
-score 1 : a1 ^ a2 ..b^i...b1 ^ b2 ..
-*/
 void solve() {
     int n;
     cin >> n;
@@ -46,22 +38,37 @@ void solve() {
     vector<int> B(n);
     for(auto &b: B) cin >> b;
 
-    // check condition for tie
-    int r = -1;
-    int xor_tot = 0;
-    for(int i = 0; i < n; i++) {
-        if(A[i] != B[i]) {
-            r = i;
+    // tie condition
+    // score1 = score2
+    // score1 ^ score2 = 0
+    // xor of all elts = 0
+
+    for(int bit = 29; bit >= 0; bit--) {
+        int mask = (1<<bit);
+        int r = -1;
+        int xor_all = 0;
+        for(int i = 0; i < n; i++) {
+            if((A[i]&mask) != (B[i]&mask)) {
+                r = i;
+            }
+            xor_all ^= (A[i]&mask);
+            xor_all ^= (B[i]&mask);
         }
-        xor_tot ^= A[i] ^ B[i];
-    }
 
-    if(xor_tot == 0) {
-        cout << "Tie\n";
-        return;
-    }
+        if(xor_all == 0) continue;
 
-    cout << (r&1?"Mai\n":"Ajisai\n");
+        if(r != -1) {
+            if(r&1) {
+                cout << "Mai\n";
+                return;
+            }
+            else {
+                cout << "Ajisai\n";
+                return;
+            }
+        }
+    }
+    cout << "Tie\n";
 }
 signed main() {
     // your code goes here
