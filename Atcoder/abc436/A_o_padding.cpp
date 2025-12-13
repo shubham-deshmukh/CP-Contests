@@ -37,6 +37,7 @@ void solve() {
 
     cout << string(n-(int)s.size(),'o') << s;
 }
+
 signed main() {
     // your code goes here
     fast;
