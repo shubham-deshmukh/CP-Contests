@@ -40,7 +40,6 @@ void solve() {
     vector<int> pos(n+1, inf);
 
     for(auto &i: st) pos[i] = 1;
-    // for(auto &p: pos) cout << p << " "; cout << endl;
     for(int i = 1; i <= n; i++) {
         for(int j = 1; 1LL *j*j <= 1LL*i; j++) {
             if(i%j == 0) {
